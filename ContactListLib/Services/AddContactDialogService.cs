@@ -24,6 +24,7 @@ public static class AddContactDialogService
                 if (Contact.Name == name && Contact.Surname == surname)
                 {
                     _existingContact = Contact;
+                    break;
                 }
             }
         }

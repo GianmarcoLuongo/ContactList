@@ -23,6 +23,7 @@ public class AddContactViewModel
         {
             BlackBoard.ContactList.Add(new Contact(Name,Surname,Telephone));
             
+            
             RequestClose.Invoke();
         }
         else
@@ -30,11 +31,8 @@ public class AddContactViewModel
             _existingContact.Name = Name;
             _existingContact.Surname = Surname;
             _existingContact.Telephone = Telephone;
-            
 
-
-
-
+           
             RequestClose.Invoke();
         }
 

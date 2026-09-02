@@ -25,7 +25,11 @@ public partial class AddContactDialogWindow : Window
         
 
         // subscribe for closing window
-        addContactViewModel.RequestClose += () => this.Close();
+        addContactViewModel.RequestClose += () => 
+        {
+           
+            this.Close();
+        };
     
     }
 

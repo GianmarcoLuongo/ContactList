@@ -12,7 +12,7 @@ public class MainViewModel
 {
     // sez properties to bind to view
     
-    public Contact? SelectedContact { get; set; } = new Contact(null,null,0);
+    public  Contact? SelectedContact { get; set; } = new Contact(null,null,0);
     public ObservableCollection<Contact> ContactList {get; set;}
 
     // sez commands
@@ -20,7 +20,8 @@ public class MainViewModel
 
     public void AddContactCommandHandler()
     {
-        AddContactDialogService.AddContactDialogServiceSpawner(true, SelectedContact.Name, SelectedContact.Surname);
+        AddContactDialogService.AddContactDialogServiceSpawner(true, SelectedContact?.Name, SelectedContact?.Surname);
+        SelectedContact = null;
     }
 
 
