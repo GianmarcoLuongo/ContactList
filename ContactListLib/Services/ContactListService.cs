@@ -5,19 +5,9 @@ using ContactListLib.Models;
 
 namespace ContactListLib.Services;
 
-public class ContactListService
+public static class ContactListService
 {
-    private ObservableCollection<Contact> _contactList { get; set; }
-
-    public ContactListService()
-    {
-        _contactList = BlackBoard.ContactList;
-    }
-
-    public ObservableCollection<Contact> GetContactsService()
-    {
-        return _contactList;
-    }
+    public static ObservableCollection<Contact> ContactList { get; set; } = BlackBoard.ContactList;
 
     
 }

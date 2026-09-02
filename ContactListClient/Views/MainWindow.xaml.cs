@@ -24,11 +24,8 @@ public partial class MainWindow : Window
     {   
 
         InitializeComponent();
-        // services init
-        var addContactDialogService = new AddContactDialogService();
-        var ContactListService = new ContactListService();
 
-        DataContext = new MainViewModel(addContactDialogService,ContactListService);
+        DataContext = new MainViewModel();
         
     }
     protected override void OnClosing(CancelEventArgs e)

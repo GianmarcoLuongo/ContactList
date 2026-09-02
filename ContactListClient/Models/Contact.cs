@@ -1,17 +1,20 @@
 using System;
-
+using CommunityToolkit.Mvvm.ComponentModel;
 namespace ContactListClient.Models;
 
-public class Contact
+public partial class Contact : ObservableObject
 {
-    public string Name { get; set; }
-    public string Surname { get; set; }
-    public int Telephone { get; set; }
+    [ObservableProperty]
+    private string _name;
+    [ObservableProperty]
+    private string _surname;
+    [ObservableProperty]
+    private int _telephone;
     public Contact(string name, string surname, int telephone)
     {
-        Name = name;
-        Surname = surname;
-        Telephone = telephone;
+        _name = name;
+        _surname = surname;
+        _telephone = telephone;
     }
 }
 

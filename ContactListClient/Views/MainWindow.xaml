@@ -20,6 +20,7 @@
              />
         <DataGrid 
             ItemsSource="{Binding ContactList}"
+            SelectedItem="{Binding SelectedContact}"
             Grid.Row="1"
             Margin="10"
             />

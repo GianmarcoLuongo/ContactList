@@ -9,16 +9,20 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using ContactListLib.ViewModels;
+using ContactListLib.Models;
 
 namespace ContactListLib.Views;
 
 public partial class AddContactDialogWindow : Window
-{
-    public AddContactDialogWindow()
+{   
+    private Contact? _existingContact { get; set; } 
+    public AddContactDialogWindow(Contact? ExistingContact)
     {
         InitializeComponent();
-        var addContactViewModel = new AddContactViewModel();
+        _existingContact = ExistingContact;
+        var addContactViewModel = new AddContactViewModel(_existingContact);
         DataContext = addContactViewModel;
+        
 
         // subscribe for closing window
         addContactViewModel.RequestClose += () => this.Close();

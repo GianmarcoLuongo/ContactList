@@ -28,3 +28,4 @@ C:\Users\gluongo\csharp_workspace\ModDialogsSolution\Debug\net10.0-windows\Conta
 C:\Users\gluongo\csharp_workspace\ModDialogsSolution\Debug\net10.0-windows\ContactListClient.runtimeconfig.json
 C:\Users\gluongo\csharp_workspace\ModDialogsSolution\Debug\net10.0-windows\ContactListClient.dll
 C:\Users\gluongo\csharp_workspace\ModDialogsSolution\Debug\net10.0-windows\ContactListClient.pdb
+C:\Users\gluongo\csharp_workspace\ModDialogsSolution\ContactListClient\obj\Debug\net10.0-windows\ContactListClient.sourcelink.json
