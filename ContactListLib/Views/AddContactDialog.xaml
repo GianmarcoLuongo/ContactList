@@ -1,0 +1,97 @@
+<Window x:Class="ContactListLib.Views.AddContactDialogWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ContactListLib.Views"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="200" Width="300">
+<Grid>
+    <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="*" />
+        <ColumnDefinition Width="*" />
+    </Grid.ColumnDefinitions>
+
+    <Grid.RowDefinitions>
+        <RowDefinition Height="*" />
+        <RowDefinition Height="*" />
+        <RowDefinition Height="*" />
+        <RowDefinition Height="*" />
+    </Grid.RowDefinitions>
+
+    <TextBlock
+        Text="Name:"
+        Grid.Column="0"
+        Grid.Row="0"
+        Margin="0"
+        HorizontalAlignment="Center"
+        VerticalAlignment="Center"
+        
+         />
+
+    <TextBlock
+        Text="Surname:"
+        Grid.Column="0"
+        Grid.Row="1"
+        Margin="0"
+        HorizontalAlignment="Center"
+        VerticalAlignment="Center" />
+
+    <TextBlock
+        Text="Telephone:"
+        Grid.Column="0"
+        Grid.Row="2"
+        Margin="0"
+        HorizontalAlignment="Center"
+        VerticalAlignment="Center" />
+
+    <TextBox
+        Grid.Column="1"
+        Grid.Row="0"
+        Margin="0"
+        Height="30"
+        Width="100"
+        HorizontalAlignment="Center"
+        VerticalAlignment="Center"
+        Text="{Binding Name}"
+         />
+
+    <TextBox
+        Grid.Column="1"
+        Grid.Row="1"
+        Margin="0"
+        Height="30"
+        Width="100"
+        HorizontalAlignment="Center"
+        VerticalAlignment="Center" 
+        Text="{Binding Surname}"
+        />
+
+    <TextBox
+        Grid.Column="1"
+        Grid.Row="2"
+        Margin="0"
+        Height="30"
+        Width="100"
+        HorizontalAlignment="Center"
+        VerticalAlignment="Center" 
+        Text="{Binding Telephone}"
+        />
+    <Button
+        x:Name="AddContactSaveButton"
+        Content="Save"
+        Grid.Column="0"
+        Grid.Row="3"
+        Margin="10"
+        Command="{Binding SaveContactCommand}"
+        />
+    <Button 
+        x:Name="RemoveContactButton"
+        Content="Remove"
+        Grid.Column="1"
+        Grid.Row="3"
+        Margin="10"
+        />
+</Grid>
+
+</Window>

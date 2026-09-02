@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="ContactListClient/ContactListClient.csproj" />
+  <Project Path="ContactListLib/ContactListLib.csproj" />
+</Solution>
