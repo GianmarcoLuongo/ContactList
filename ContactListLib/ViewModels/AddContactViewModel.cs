@@ -8,7 +8,8 @@ namespace ContactListLib.ViewModels;
 
 public class AddContactViewModel 
 {   
-    private Contact? _existingContact { get; set; }
+
+    private Contact? _selectedContact { get; set; }
     public Action RequestClose;
     public string? Name { get; set; }
     public string? Surname {get; set;}
@@ -16,36 +17,50 @@ public class AddContactViewModel
     
     // sez. Commands
     public ICommand SaveContactCommand { get; set;}
-    public void SaveContactCommandHandler()
+public void SaveContactCommandHandler()
+{
+    if (_selectedContact == null)
     {
+        bool exists = false;
 
-        if (_existingContact == null)
+        foreach (Contact contact in BlackBoard.ContactList)
         {
-            BlackBoard.ContactList.Add(new Contact(Name,Surname,Telephone));
-            
-            
-            RequestClose.Invoke();
-        }
-        else
-        {
-            _existingContact.Name = Name;
-            _existingContact.Surname = Surname;
-            _existingContact.Telephone = Telephone;
-
-           
-            RequestClose.Invoke();
+            if (contact.Name == Name &&
+                contact.Surname == Surname)
+            {
+                contact.Telephone = Telephone;
+                exists = true;
+                break;
+            }
         }
 
+        if (!exists)
+        {
+            BlackBoard.ContactList.Add(
+                new Contact(Name, Surname, Telephone));
+
+            RequestClose?.Invoke();
+        }
     }
-    public AddContactViewModel(Contact? ExistingContact)
+    else
     {
-        _existingContact = ExistingContact;
-        if(_existingContact != null)
+        _selectedContact.Name = Name;
+        _selectedContact.Surname = Surname;
+        _selectedContact.Telephone = Telephone;
+
+        RequestClose?.Invoke();
+    }
+}
+    public AddContactViewModel(Contact? SelectedContact)
+    {
+        _selectedContact = SelectedContact;
+        if(_selectedContact != null)
         {
-            Name = _existingContact.Name;
-            Surname = _existingContact.Surname;
-            Telephone = _existingContact.Telephone;
+            Name = _selectedContact.Name;
+            Surname = _selectedContact.Surname;
+            Telephone = _selectedContact.Telephone;
         }
+
         SaveContactCommand = new RelayCommand(SaveContactCommandHandler);
 ;    }
 

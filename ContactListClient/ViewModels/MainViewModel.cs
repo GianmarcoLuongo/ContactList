@@ -20,8 +20,11 @@ public class MainViewModel
 
     public void AddContactCommandHandler()
     {
-        AddContactDialogService.AddContactDialogServiceSpawner(true, SelectedContact?.Name, SelectedContact?.Surname);
-        SelectedContact = null;
+        
+        //AddContactDialogService.AddContactDialogServiceSpawner(true, SelectedContact?.Name, SelectedContact?.Surname);
+        // passo il contatto selezionato direttamente
+        AddContactDialogService.AddContactDialogServiceSpawner(true,SelectedContact);
+
     }
 
 

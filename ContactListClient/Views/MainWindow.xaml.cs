@@ -31,6 +31,13 @@ public partial class MainWindow : Window
     protected override void OnClosing(CancelEventArgs e)
     {
         // Ciclo per tutte le finestre aperte e chiuderle
+        foreach (Window window in Application.Current.Windows)
+        {
+            if (window != this)
+            {
+                window.Close();
+            }
+        }
         base.OnClosing(e);
     }
 }
