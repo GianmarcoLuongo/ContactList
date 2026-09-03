@@ -9,6 +9,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ContactListClient.Models;
 using ContactListClient.ViewModels;
 using ContactListLib.Services;
 namespace ContactListClient.Views;
@@ -25,7 +26,7 @@ public partial class MainWindow : Window
 
         InitializeComponent();
 
-        DataContext = new MainViewModel();
+        DataContext = new MainViewModel(ContactListGrid);
         
     }
     protected override void OnClosing(CancelEventArgs e)
@@ -40,4 +41,11 @@ public partial class MainWindow : Window
         }
         base.OnClosing(e);
     }
+
+    private void ContactListGridLostFocus(object sender,RoutedEventArgs e)
+    {
+        ContactListGrid.SelectedItem = new Contact(null,null,0);
+    }
+
+
 }

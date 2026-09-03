@@ -19,10 +19,12 @@
             Grid.Row="0"
              />
         <DataGrid 
+            x:Name="ContactListGrid"
             ItemsSource="{Binding ContactList}"
-            SelectedItem="{Binding SelectedContact}"
+            SelectedItem="{Binding SelectedContact, Mode=TwoWay}"
             Grid.Row="1"
             Margin="10"
+            LostFocus="ContactListGridLostFocus"
             />
     </Grid>
 </Window>

@@ -15,12 +15,13 @@ namespace ContactListLib.Views;
 
 public partial class AddContactDialogWindow : Window
 {   
-    private Contact? _selectedContact { get; set; }
+    private Contact? _selectedDialogContact { get; set; }
     public AddContactDialogWindow(Contact? SelectedContact)
-    {
+    {   
+
         InitializeComponent();
-        _selectedContact =  SelectedContact;
-        var addContactViewModel = new AddContactViewModel(_selectedContact);
+        _selectedDialogContact =  SelectedContact;
+        var addContactViewModel = new AddContactViewModel(_selectedDialogContact);
         DataContext = addContactViewModel;
         
 
@@ -28,6 +29,7 @@ public partial class AddContactDialogWindow : Window
         addContactViewModel.RequestClose += () => 
         {
             this.Close();
+            _selectedDialogContact = null;
         };
     
     }

@@ -7,35 +7,45 @@ using CommunityToolkit.Mvvm.Input;
 using System.Windows;
 using CommunityToolkit.Mvvm.ComponentModel;
 using System.Security.Cryptography.X509Certificates;
+using System.Windows.Controls;
 namespace ContactListClient.ViewModels;
-public class MainViewModel
+public partial class MainViewModel : ObservableObject
 {
     // sez properties to bind to view
-    
-    public  Contact? SelectedContact { get; set; } = new Contact(null,null,0);
+    [ObservableProperty]
+    private  Contact? _selectedContact;
     public ObservableCollection<Contact> ContactList {get; set;}
+    private DataGrid _contactListGrid {get; set; }
 
     // sez commands
     public ICommand? AddContactCommand { get; set; }
+
 
     public void AddContactCommandHandler()
     {
         
         //AddContactDialogService.AddContactDialogServiceSpawner(true, SelectedContact?.Name, SelectedContact?.Surname);
         // passo il contatto selezionato direttamente
-        AddContactDialogService.AddContactDialogServiceSpawner(true,SelectedContact);
+        AddContactDialogService.AddContactDialogServiceSpawner(false,_selectedContact);
+
 
     }
 
+    public void SelectedItemResetSubscriber()
+    {
+        _selectedContact = new Contact(null,null,0);
+    }
 
 
-    public MainViewModel()
+    public MainViewModel(DataGrid ContactListGrid)
     {   
-
+        _contactListGrid = ContactListGrid;
+        _selectedContact = new Contact(null,null,0);
         AddContactCommand = new RelayCommand(AddContactCommandHandler);
         //MessageBox.Show("Istance of MainViewModel created");
+        ContactList = ContactListService.ContactList; 
+        AddContactDialogService.SelectedItemReset += SelectedItemResetSubscriber; 
 
-        ContactList = ContactListService.ContactList;        
     }
 
 }
