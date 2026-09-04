@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ContactListLib")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3e95444d9f19b39e2b42df008e68fd27f1334f88")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5b12b70c3ad581325ff2aa7413048cbdca40eef0")]
 [assembly: System.Reflection.AssemblyProductAttribute("ContactListLib")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ContactListLib")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

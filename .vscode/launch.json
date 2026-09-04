@@ -6,8 +6,8 @@
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "build",
-            "program": "${workspaceFolder}/ContactListClient/bin/Debug/net10.0-windows/ContactListClient.exe",
-            "cwd": "${workspaceFolder}/ContactListClient",
+            "program": "${workspaceFolder}/Debug/net10.0-windows/ContactListClient.exe",
+            "cwd": "${workspaceFolder}",
             "stopAtEntry": false,
             "console": "internalConsole"
         }
