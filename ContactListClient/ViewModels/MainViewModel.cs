@@ -26,7 +26,8 @@ public partial class MainViewModel : ObservableObject
         
         //AddContactDialogService.AddContactDialogServiceSpawner(true, SelectedContact?.Name, SelectedContact?.Surname);
         // passo il contatto selezionato direttamente
-        AddContactDialogService.AddContactDialogServiceSpawner(false,_contactDictEntry.Value);
+        //AddContactDialogService.AddContactDialogServiceSpawner(true,_contactDictEntry.Value);
+        AddContactDialogService.AddContactDialogServiceSpawner(true,_contactDictEntry.Value.Name,_contactDictEntry.Value.Surname);
 
 
     }

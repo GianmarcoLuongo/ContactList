@@ -39,6 +39,7 @@ public partial class MainWindow : Window
                 window.Close();
             }
         }
+
         base.OnClosing(e);
     }
 

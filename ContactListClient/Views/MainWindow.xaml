@@ -13,7 +13,7 @@
         </Grid.RowDefinitions>
 
         <Button
-            Content="Apri Dialog"
+            Content="Add/edit record"
             Command="{Binding AddContactCommand}"
             Margin="10"
             Grid.Row="0"

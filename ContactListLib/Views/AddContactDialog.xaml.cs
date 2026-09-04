@@ -1,5 +1,6 @@
 using System.Text;
 using System.Windows;
+using System.ComponentModel;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
@@ -10,6 +11,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using ContactListLib.ViewModels;
 using ContactListLib.Models;
+using ContactListLib.Services;
 
 namespace ContactListLib.Views;
 
@@ -34,4 +36,8 @@ public partial class AddContactDialogWindow : Window
     
     }
 
+    protected override void OnClosing(CancelEventArgs e)
+    {
+        AddContactDialogService.SelectedItemResetHandler();
+    }
 }

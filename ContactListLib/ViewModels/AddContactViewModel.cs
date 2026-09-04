@@ -6,6 +6,8 @@ using System.Windows.Input;
 using CommunityToolkit.Mvvm.Input;
 using ContactListLib.Services;
 using CommunityToolkit.Mvvm.ComponentModel;
+using System.Text;
+using System.Security.Cryptography;
 namespace ContactListLib.ViewModels;
 
 public class AddContactViewModel 
@@ -19,6 +21,7 @@ public class AddContactViewModel
     
     // sez. Commands
     public ICommand SaveContactCommand { get; set;}
+    public ICommand RemoveContactCommand { get; set; }
 
 
 public void SaveContactCommandHandler()
@@ -26,7 +29,15 @@ public void SaveContactCommandHandler()
     if (_selectedViewModelContact == null)
     {
         bool exists = false;
+        
+        /*
+            foreach (KeyValuePair<string,Contact> pair in BlackBoard.ContactListDictionary)
+            {
+                MessageBox.Show($"Collection Record Value : {pair.Key}");
+            }
 
+            MessageBox.Show($"{AddContactDialogService.ContactSelectionKeyGUIDString}");
+        */
         foreach (KeyValuePair<string,Contact> contactDictEntry in BlackBoard.ContactListDictionary)
         {
             if (contactDictEntry.Value.Name == Name &&
@@ -61,6 +72,27 @@ public void SaveContactCommandHandler()
         
     }
 }
+
+    public void RemoveContactCommandHandler()
+    {
+        {
+            /*
+            foreach (KeyValuePair<string,Contact> pair in BlackBoard.ContactListDictionary)
+            {   
+                if (AddContactDialogService.ContactSelectionKeyGUIDString == pair.Key)
+                {
+                    MessageBox.Show("La corrispondenza c'è");
+                }
+            }
+            */
+            var ContactListDictionaryRemoveEntry = BlackBoard.ContactListDictionary.FirstOrDefault(x => x.Key == AddContactDialogService.ContactSelectionKeyGUIDString);
+            BlackBoard.ContactListDictionary.Remove(ContactListDictionaryRemoveEntry);
+            
+        }
+        AddContactDialogService.SelectedItemResetHandler();
+        RequestClose?.Invoke();
+    }
+
     public AddContactViewModel(Contact? SelectedContact)
     {   
 
@@ -71,8 +103,16 @@ public void SaveContactCommandHandler()
             Surname = _selectedViewModelContact.Surname;
             Telephone = _selectedViewModelContact.Telephone;
         }
-
+            if (Name!=null && Surname!=null)
+            {
+            Name = Name.Trim();
+            Surname = Surname.Trim();
+            byte[] ContactSelectionKey = SHA256.Create().ComputeHash(Encoding.UTF8.GetBytes(Name+Surname));
+            Guid ContactSelectionKeyGUID = new Guid(ContactSelectionKey[..16]);
+            AddContactDialogService.ContactSelectionKeyGUIDString = ContactSelectionKeyGUID.ToString();
+            }
         SaveContactCommand = new RelayCommand(SaveContactCommandHandler);
+        RemoveContactCommand = new RelayCommand(RemoveContactCommandHandler);
 ;    }
 
 }
