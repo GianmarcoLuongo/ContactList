@@ -15,3 +15,4 @@ C:\Users\gluongo\csharp_workspace\ModDialogsSolution\ContactListLib\obj\Release\
 C:\Users\gluongo\csharp_workspace\ModDialogsSolution\ContactListLib\obj\Release\net10.0-windows\refint\ContactListLib.dll
 C:\Users\gluongo\csharp_workspace\ModDialogsSolution\ContactListLib\obj\Release\net10.0-windows\ContactListLib.pdb
 C:\Users\gluongo\csharp_workspace\ModDialogsSolution\ContactListLib\obj\Release\net10.0-windows\ref\ContactListLib.dll
+C:\Users\gluongo\csharp_workspace\ModDialogsSolution\ContactListLib\obj\Release\net10.0-windows\ContactListLib.sourcelink.json

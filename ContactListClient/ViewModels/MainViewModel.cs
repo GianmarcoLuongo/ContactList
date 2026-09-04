@@ -13,7 +13,7 @@ public partial class MainViewModel : ObservableObject
 {
     // sez properties to bind to view
     [ObservableProperty]
-    private  Contact? _selectedContact;
+    private  KeyValuePair<string,Contact> _contactDictEntry;
     public ObservableCollection<KeyValuePair<string,Contact>> ContactListDictionary {get; set;}
     private DataGrid _contactListGrid {get; set; }
 
@@ -26,22 +26,22 @@ public partial class MainViewModel : ObservableObject
         
         //AddContactDialogService.AddContactDialogServiceSpawner(true, SelectedContact?.Name, SelectedContact?.Surname);
         // passo il contatto selezionato direttamente
-        AddContactDialogService.AddContactDialogServiceSpawner(false,_selectedContact);
+        AddContactDialogService.AddContactDialogServiceSpawner(false,_contactDictEntry.Value);
 
 
     }
 
     public void SelectedItemResetSubscriber()
     {
-        _selectedContact = new Contact(null,null,0);
+        _contactDictEntry = new KeyValuePair<string,Contact>("",new Contact(null,null,0));
     }
 
 
     public MainViewModel(DataGrid ContactListGrid)
     {   
-        
+
         _contactListGrid = ContactListGrid;
-        _selectedContact = new Contact(null,null,0);
+        _contactDictEntry = new KeyValuePair<string,Contact>("",new Contact(null,null,0));
         AddContactCommand = new RelayCommand(AddContactCommandHandler);
         ContactListDictionary = ContactListService.ContactListDictionary; 
         AddContactDialogService.SelectedItemReset += SelectedItemResetSubscriber; 

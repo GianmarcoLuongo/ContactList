@@ -21,7 +21,7 @@
         <DataGrid
             x:Name="ContactListGrid"
             ItemsSource="{Binding ContactListDictionary}"
-            SelectedItem="{Binding SelectedContact, Mode=TwoWay}"
+            SelectedItem="{Binding ContactDictEntry, Mode=TwoWay}"
             AutoGenerateColumns="False"
             Grid.Row="1"
             Margin="10"

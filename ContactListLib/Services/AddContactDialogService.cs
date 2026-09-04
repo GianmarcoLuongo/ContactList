@@ -52,8 +52,7 @@ public static class AddContactDialogService
             {
                 if (contactDictEntry.Value.Name == SelectedContact.Name && contactDictEntry.Value.Surname == SelectedContact.Surname)
                 {
-                    _selectedContact = new Contact(contactDictEntry.Value.Name,contactDictEntry.Value.Surname,contactDictEntry.Value.Telephone);
-                    break;
+                    _selectedContact = contactDictEntry.Value;
                 }
             }
         }

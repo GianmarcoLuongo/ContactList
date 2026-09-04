@@ -20,3 +20,4 @@ C:\Users\gluongo\csharp_workspace\ModDialogsSolution\ContactListClient\obj\Relea
 C:\Users\gluongo\csharp_workspace\ModDialogsSolution\ContactListClient\obj\Release\net10.0-windows\ContactListClient.pdb
 C:\Users\gluongo\csharp_workspace\ModDialogsSolution\ContactListClient\obj\Release\net10.0-windows\ContactListClient.genruntimeconfig.cache
 C:\Users\gluongo\csharp_workspace\ModDialogsSolution\ContactListClient\obj\Release\net10.0-windows\ref\ContactListClient.dll
+C:\Users\gluongo\csharp_workspace\ModDialogsSolution\ContactListClient\obj\Release\net10.0-windows\ContactListClient.sourcelink.json
