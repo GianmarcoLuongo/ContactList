@@ -14,7 +14,7 @@ public partial class MainViewModel : ObservableObject
     // sez properties to bind to view
     [ObservableProperty]
     private  Contact? _selectedContact;
-    public ObservableCollection<Contact> ContactList {get; set;}
+    public ObservableCollection<KeyValuePair<string,Contact>> ContactListDictionary {get; set;}
     private DataGrid _contactListGrid {get; set; }
 
     // sez commands
@@ -39,11 +39,11 @@ public partial class MainViewModel : ObservableObject
 
     public MainViewModel(DataGrid ContactListGrid)
     {   
+        
         _contactListGrid = ContactListGrid;
         _selectedContact = new Contact(null,null,0);
         AddContactCommand = new RelayCommand(AddContactCommandHandler);
-        //MessageBox.Show("Istance of MainViewModel created");
-        ContactList = ContactListService.ContactList; 
+        ContactListDictionary = ContactListService.ContactListDictionary; 
         AddContactDialogService.SelectedItemReset += SelectedItemResetSubscriber; 
 
     }

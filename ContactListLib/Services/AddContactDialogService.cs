@@ -24,11 +24,11 @@ public static class AddContactDialogService
         {
             // Trova l'elemento se esiste in BlackBox ed aggiorna ViewModel per editare
             
-            foreach (var Contact in BlackBoard.ContactList)
+            foreach (var contactDictEntry in BlackBoard.ContactListDictionary)
             {
-                if (Contact.Name == name && Contact.Surname == surname)
+                if (contactDictEntry.Value.Name == name && contactDictEntry.Value.Surname == surname)
                 {
-                    _selectedContact  = Contact;
+                    _selectedContact  = new Contact(contactDictEntry.Value.Name,contactDictEntry.Value.Surname,contactDictEntry.Value.Telephone);
                     break;
                 }
             }
@@ -48,11 +48,11 @@ public static class AddContactDialogService
         {
             // Trova l'elemento se esiste in BlackBox ed aggiorna ViewModel per editare
             
-            foreach (var Contact in BlackBoard.ContactList)
+            foreach (var contactDictEntry in BlackBoard.ContactListDictionary)
             {
-                if (Contact.Name == SelectedContact.Name && Contact.Surname == SelectedContact.Surname)
+                if (contactDictEntry.Value.Name == SelectedContact.Name && contactDictEntry.Value.Surname == SelectedContact.Surname)
                 {
-                    _selectedContact = Contact;
+                    _selectedContact = new Contact(contactDictEntry.Value.Name,contactDictEntry.Value.Surname,contactDictEntry.Value.Telephone);
                     break;
                 }
             }

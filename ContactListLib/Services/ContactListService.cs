@@ -7,7 +7,6 @@ namespace ContactListLib.Services;
 
 public static class ContactListService
 {
-    public static ObservableCollection<Contact> ContactList { get; set; } = BlackBoard.ContactList;
-
+    public static ObservableCollection<KeyValuePair<string,Contact>> ContactListDictionary { get; set; } = BlackBoard.ContactListDictionary;
     
 }

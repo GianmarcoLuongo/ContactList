@@ -18,13 +18,29 @@
             Margin="10"
             Grid.Row="0"
              />
-        <DataGrid 
+        <DataGrid
             x:Name="ContactListGrid"
-            ItemsSource="{Binding ContactList}"
+            ItemsSource="{Binding ContactListDictionary}"
             SelectedItem="{Binding SelectedContact, Mode=TwoWay}"
+            AutoGenerateColumns="False"
             Grid.Row="1"
             Margin="10"
-            LostFocus="ContactListGridLostFocus"
-            />
+            LostFocus="ContactListGridLostFocus">
+
+    
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Key"
+                                    Binding="{Binding Key}" />
+
+                <DataGridTextColumn Header="Name"
+                                    Binding="{Binding Value.Name}" />
+
+                <DataGridTextColumn Header="Surname"
+                                    Binding="{Binding Value.Surname}" />
+
+                <DataGridTextColumn Header="Telephone"
+                                    Binding="{Binding Value.Telephone}" />
+            </DataGrid.Columns>
+            </DataGrid>
     </Grid>
 </Window>

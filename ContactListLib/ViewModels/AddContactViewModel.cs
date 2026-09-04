@@ -27,12 +27,12 @@ public void SaveContactCommandHandler()
     {
         bool exists = false;
 
-        foreach (Contact contact in BlackBoard.ContactList)
+        foreach (KeyValuePair<string,Contact> contactDictEntry in BlackBoard.ContactListDictionary)
         {
-            if (contact.Name == Name &&
-                contact.Surname == Surname)
+            if (contactDictEntry.Value.Name == Name &&
+                contactDictEntry.Value.Surname == Surname)
             {
-                contact.Telephone = Telephone;
+                contactDictEntry.Value.Telephone = Telephone;
                 exists = true;
                 AddContactDialogService.SelectedItemResetHandler();
                 RequestClose?.Invoke();
@@ -43,8 +43,8 @@ public void SaveContactCommandHandler()
 
         if (!exists)
         {
-            BlackBoard.ContactList.Add(
-                new Contact(Name, Surname, Telephone));
+            //BlackBoard.ContactList.Add(new Contact(Name, Surname, Telephone));
+            BlackBoard.AddContactToDictionaryHandler(new Contact(Name,Surname,Telephone));
             //AddContactDialogService._selectedContact = null;
             AddContactDialogService.SelectedItemResetHandler();
             RequestClose?.Invoke();
