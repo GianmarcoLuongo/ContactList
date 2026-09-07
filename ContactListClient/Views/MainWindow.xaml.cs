@@ -27,6 +27,7 @@ public partial class MainWindow : Window
         InitializeComponent();
 
         DataContext = new MainViewModel(ContactListGrid);
+        AddContactDialogService.SelectedItemReset += SelectedItemResetSubscriber; 
         
     }
     protected override void OnClosing(CancelEventArgs e)
@@ -48,13 +49,11 @@ public partial class MainWindow : Window
         ContactListGrid.SelectedItem = new Contact(null,null,0);
     }
 
-    private void ContactListGrid_SelectionChanged(
-        object sender,
-        SelectionChangedEventArgs e)
+    public void SelectedItemResetSubscriber()
     {
-        var selected = ContactListGrid.SelectedItem;
-
-        MessageBox.Show($"Tipo SelectedItem: {selected?.GetType().FullName}");
+        //_contactDictEntry = new KeyValuePair<string,Contact>("",new Contact(null,null,0));
+        ContactListGrid.SelectedItem = null;
     }
+
 
 }

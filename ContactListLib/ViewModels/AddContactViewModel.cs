@@ -67,7 +67,7 @@ public void SaveContactCommandHandler()
         _selectedViewModelContact.Name = Name;
         _selectedViewModelContact.Surname = Surname;
         _selectedViewModelContact.Telephone = Telephone;
-        AddContactDialogService.SelectedItemResetHandler();
+        //AddContactDialogService.SelectedItemResetHandler();
         RequestClose?.Invoke();
         
     }

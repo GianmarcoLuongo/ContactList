@@ -32,6 +32,7 @@ public partial class MainViewModel : ObservableObject
 
     }
 
+
     public void SelectedItemResetSubscriber()
     {
         _contactDictEntry = new KeyValuePair<string,Contact>("",new Contact(null,null,0));

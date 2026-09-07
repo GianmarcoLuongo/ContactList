@@ -62,7 +62,8 @@ public static class AddContactDialogService
     // non viene attuata la dependency injection per il motivo che una classe statica non può essere istanziata
     // in c# le istanze delle classi sono passate per riferimento di default
     public static void AddContactDialogServiceSpawner(bool modal, Contact? SelectedContact)
-    {       
+    {   
+
         _selectedContact = null;
                 if (SelectedContact.Name != null && SelectedContact.Surname != null)
         {
@@ -79,6 +80,7 @@ public static class AddContactDialogService
         var AddContactDialog = new AddContactDialogWindow(_selectedContact);
         if (modal) AddContactDialog.ShowDialog();
         else AddContactDialog.Show();
+        
         
     }
 
