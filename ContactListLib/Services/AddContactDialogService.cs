@@ -38,7 +38,8 @@ public static class AddContactDialogService
             {   
                 if (ContactSelectionKeyGUIDString == contactDictEntry.Key)
                 {
-                    _selectedContact  = new Contact(contactDictEntry.Value.Name,contactDictEntry.Value.Surname,contactDictEntry.Value.Telephone);
+                    //_selectedContact  = new Contact(contactDictEntry.Value.Name,contactDictEntry.Value.Surname,contactDictEntry.Value.Telephone);
+                    _selectedContact = contactDictEntry.Value;
                     break;
                 }
                 

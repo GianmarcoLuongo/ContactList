@@ -25,7 +25,9 @@
             AutoGenerateColumns="False"
             Grid.Row="1"
             Margin="10"
-            LostFocus="ContactListGridLostFocus">
+            LostFocus="ContactListGridLostFocus"
+            SelectionChanged="ContactListGrid_SelectionChanged"
+            >
 
     
             <DataGrid.Columns>

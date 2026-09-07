@@ -29,7 +29,7 @@ public void SaveContactCommandHandler()
     if (_selectedViewModelContact == null)
     {
         bool exists = false;
-        
+
         /*
             foreach (KeyValuePair<string,Contact> pair in BlackBoard.ContactListDictionary)
             {

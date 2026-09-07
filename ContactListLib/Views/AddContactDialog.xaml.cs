@@ -30,8 +30,10 @@ public partial class AddContactDialogWindow : Window
         // subscribe for closing window
         addContactViewModel.RequestClose += () => 
         {
+            AddContactDialogService.SelectedItemResetHandler();
             this.Close();
-            _selectedDialogContact = null;
+            //_selectedDialogContact = null;
+            
         };
     
     }

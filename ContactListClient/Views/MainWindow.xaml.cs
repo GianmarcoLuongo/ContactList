@@ -48,5 +48,13 @@ public partial class MainWindow : Window
         ContactListGrid.SelectedItem = new Contact(null,null,0);
     }
 
+    private void ContactListGrid_SelectionChanged(
+        object sender,
+        SelectionChangedEventArgs e)
+    {
+        var selected = ContactListGrid.SelectedItem;
+
+        MessageBox.Show($"Tipo SelectedItem: {selected?.GetType().FullName}");
+    }
 
 }
